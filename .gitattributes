@@ -1,0 +1,2 @@
+0_ct_lung_cancer_module/model_weights/model_multi_best.ckpt filter=lfs diff=lfs merge=lfs -text
+0_ct_lung_cancer_module/data/nii/1.2.392.200036.9116.2.6.1.37.2420784027.1514971158.94997.nii filter=lfs diff=lfs merge=lfs -text
