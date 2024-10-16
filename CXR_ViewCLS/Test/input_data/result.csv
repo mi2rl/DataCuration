@@ -1,0 +1,9 @@
+,file,path,pred
+0,1000007.dcm,./input_data/1000007.dcm,PA
+1,1000025.dcm,./input_data/1000025.dcm,PA
+2,1000049.dcm,./input_data/1000049.dcm,PA
+3,1000405.dcm,./input_data/1000405.dcm,PA
+4,1000856.dcm,./input_data/1000856.dcm,PA
+5,IRB2021030312_3451079.2.15.dcm,./input_data/IRB2021030312_3451079.2.15.dcm,Others
+6,IRB20210303_1_832052.802.80.dcm,./input_data/IRB20210303_1_832052.802.80.dcm,Others
+7,IRB20210303_1_832051.802.1020.dcm,./input_data/IRB20210303_1_832051.802.1020.dcm,Others
