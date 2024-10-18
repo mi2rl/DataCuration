@@ -40,3 +40,15 @@ You can download the pre-trained model weights from the following link:
 [Download Model Weights](https://drive.google.com/file/d/1-pauKADV0gEfen2Jip9Jwjdttx6oDa_w/view?usp=drive_link)
 
 Once downloaded, place the `nnUNet_results` directory at the same level as the `brainmeta_prediction.sh` file.
+
+## Execution
+
+To run the inference on new CT images, follow these steps:
+
+1. Place the desired CT image files in the `_inputs` folder.
+2. Ensure that the filenames for the images end with `_0000.nii.gz`. This is required for the inference process.
+3. Run the following command to execute the segmentation:
+
+   ```bash
+   bash brainmeta_prediction.sh
+   ```
