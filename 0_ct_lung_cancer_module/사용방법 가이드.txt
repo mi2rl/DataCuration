@@ -1,0 +1,45 @@
+parser.add_argument('--target_dir', type=str, default="./data", help='The target directory path')
+parser.add_argument('--output_dir', type=str, default="./output", help="The directory that results are saved")
+parser.add_argument('--ext', type=str, default=".nii", help="file extension you use. you can choose one of nii, nii.gz")
+parser.add_argument('--gpu_num', type=int, default=-1, help="The gpu num you use. -1 means use cpu")
+parser.add_argument('--dtype', type=str, default="float16", help="dtype you use. you can choose float16, float32, float64, default is float16")
+parser.add_argument('--weight_path', type=str, default="./model_weights/model_multi_best.ckpt", help="The weight ckpt path you use")
+parser.add_argument('--mask_threshold', type=float, default=0.5, help="mask thresold")
+
+inference.py 에서 받는 argument 목록은 위와같으며, 보다 자세한 설명이 필요할 시에는 tobeor3009@gmail.com으로 문의바랍니다.
+
+기대되는 data folder 구조는 다음과 같다.
+ext 가 nii.gz 라고 한다면
+
+data
+    nii.gz
+        ~~1.nii.gz
+        ~~2.nii.gz
+    manual_pos.csv
+    
+manual_pos.csv는 4개의 열을 가진 csv파일을 넣어야한다.
+SeriesInstanceUID	x	y	z 이다.
+
+SeriesInstanceUID 는 파일의 basename 중 extension을 제외한 이름을 넣으면 된다.
+예를들어, 파일 경로가 "./data/test_file.nii.gz" 라고 해보자. 그러면 test_file 이어야 하는 식이다.
+또한 한개의 파일에 center point가 여러개여도 된다.
+
+이어서 output file 구조를 설명한다.
+output 폴더 구조는 다음과 같다.
+
+output
+    stride_half_0.5
+        files
+            series_uid_1_image.nii.gz
+            series_uid_1_mask.nii.gz
+            series_uid_2_image.nii.gz
+            series_uid_2_mask.nii.gz
+        visualize
+            series_uid_1
+                center_point_png
+            series_uid_2
+                center_point_png
+                
+files는 실제 inference된 이미지와 mask를 argument에서 지정한 file extension으로 저장해주며,
+visualize는 manual_pos.csv 에서 지정된 tumor center point별로 axial, coronal, lat로 이미지를 시각화해서 보여준다.
+각 이미지별로 폴더가 생성되며, png갯수는 tumor_center_point 갯수와 같다.
