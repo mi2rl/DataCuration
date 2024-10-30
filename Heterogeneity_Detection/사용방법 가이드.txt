@@ -1,0 +1,7 @@
+Step 1. 본인의 data 경로를 data_folder 에 담은 csv 파일 phase.csv 를 준비합니다.
+
+Step 2. Run Deepspeed.py.ipynb 파일에 있는 명령어를 실행하거나 또는 아래의 명령어를 실행하여 deepspeed 를 이용한 fold split training을 실행한다.
+	deepspeed --include localhost:0,1,2,3 --master_port=29508 1_train_heterogeneity_deepspeed.py
+
+Step 3. 2_Inference_Fold_Result.ipynb 를 실행하여 아래의 폴더에 쌓이는 이미지들중 dice score가 낮은 순서대로 heterogeneity를 체크한다.
+	./check_output
